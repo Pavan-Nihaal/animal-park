@@ -1,0 +1,21 @@
+{
+  "name": "animal-park",
+  "version": "1.0.0",
+  "description": "Complete Pet Care Platform",
+  "private": true,
+  "workspaces": [
+    "apps/api",
+    "apps/web",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=@animal-park/api\" \"npm run dev --workspace=@animal-park/web\"",
+    "build": "npm run build --workspace=@animal-park/api && npm run build --workspace=@animal-park/web",
+    "start": "npm start --workspace=@animal-park/api",
+    "seed": "npm run seed --workspace=@animal-park/api",
+    "test": "npm test --workspace=@animal-park/api && npm test --workspace=@animal-park/web"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
